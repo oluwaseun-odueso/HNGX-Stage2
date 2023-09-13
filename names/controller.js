@@ -1,4 +1,13 @@
 const { CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED} = require('http-status')
+const {
+   addName,
+} = require('./repository')
+
+const {
+   retrieveName,
+   updateName
+} = require('./services')
+
 
 class NameController {
    constructor(
@@ -22,6 +31,7 @@ class NameController {
    getName = async (req, res) => {
       try {
          const name = await retrieveName (req.params.user_id)
+
          return res.status(OK).json({name})
       } catch (error) {
          return res.status(500).json({
