@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/api', addName)
+router.post('/api', saveName)
 router.get('/api/:user_id', getName)
-router.put('/api/:user_id', updateName)
+router.put('/api/:user_id', editName)
 router.delete('/api/:user_id', deleteName)
 
 module.exports = router
