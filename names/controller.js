@@ -5,7 +5,8 @@ const {
 
 const {
    retrieveName,
-   updateName
+   updateName,
+   deleteAName
 } = require('./services')
 
 

@@ -9,7 +9,7 @@ class NameRepository {
          const name = await Names.create({ name })
          return name
       } catch (error) {
-         throw new Error(`Error saving name: ${error}`)
+         return error
       } 
    }
 
