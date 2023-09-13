@@ -9,7 +9,7 @@ class NamesController {
       try {
          const { name } = req.body;
          const newName = await addName (name)
-         res.staus(OK).json({message: "Name saved", newName})
+         res.staus(CREATED).json({message: "Name saved", newName})
       } catch (error) {
          return res.status(500).json({
             success: false,
@@ -21,7 +21,8 @@ class NamesController {
 
    getName = async (req, res) => {
       try {
-         
+         const name = await retrieveName (req.params.user_id)
+         return res.status(OK).json({name})
       } catch (error) {
          return res.status(500).json({
             success: false,
