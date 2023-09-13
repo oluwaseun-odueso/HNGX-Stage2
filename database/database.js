@@ -1,4 +1,4 @@
-import {Sequelize} from 'sequelize';
+const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 const database = process.env.SQ_DATABASE;
@@ -18,4 +18,4 @@ sequelize.authenticate()
     .then(() => console.log('Connection has been established successfully.'))
     .catch((error) => console.log('Unable to connect to the database:', error));
 
-export default sequelize;
+module.exports = sequelize;

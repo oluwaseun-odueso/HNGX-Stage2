@@ -1,6 +1,6 @@
 const { CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED} = require('http-status')
 
-class NamesController {
+class NameController {
    constructor(
       namesServices
    ) {}
@@ -60,4 +60,4 @@ class NamesController {
    }
 }
 
-module.exports = NamesController;
+module.exports = new NameController;

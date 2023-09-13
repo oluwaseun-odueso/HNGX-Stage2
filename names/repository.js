@@ -1,14 +1,50 @@
-import {DataTypes, Model} from 'sequelize';
-import sequelize from '../connection/database';
+const Name = require('./model')
+const Names = require('./model')
 
-export class Seller extends Model {}
+class NameRepository {
+   constructor() {}
 
-Seller.init({
-   name: {
-   type: DataTypes.STRING,
-   allowNull: false
+   addName = async (name) => {
+      try {
+         const name = await Names.create({ name })
+         return name
+      } catch (error) {
+         throw new Error(`Error saving name: ${error}`)
+      } 
    }
-  }, {
-   sequelize,
-   modelName: 'Names' 
-});
+
+   getAName = async (id) => {
+      try {
+         const name = await Names.findOne({
+         where: { id }
+         })
+         return name
+      } catch (error) {
+         return error
+      }
+   }
+
+   deleteAName = async (id) => {
+      try {
+         const response = await Name.destroy({
+            where: { id } 
+         })
+         return response
+      } catch (error) {
+         return error
+      }
+   }
+
+   updateAName = async (id, name) => {
+      try {
+         const name = await User.update({name}, {
+            where: { id }
+         })
+         return name
+      } catch (error) {
+         return error 
+      }
+   }
+}
+
+module.exports = new NameRepository
