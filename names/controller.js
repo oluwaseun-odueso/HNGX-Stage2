@@ -59,3 +59,5 @@ class NamesController {
       }
    }
 }
+
+module.exports = NamesController;
