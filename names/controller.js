@@ -34,7 +34,9 @@ class NamesController {
 
    editName = async (req, res) => {
       try {
-         
+         const { name } = req.body;
+         const editedName = await updateName(req.params.user_id, name)
+         res.staus(OK).json({message: "Name updated", editedName})
       } catch (error) {
          return res.status(500).json({
             success: false,
@@ -46,7 +48,8 @@ class NamesController {
 
    deleteName = async (req, res) => {
       try {
-         
+         await deleteAName(req.params.user_id)
+         res.staus(OK).json({message: "Name deleted", editedName})
       } catch (error) {
          return res.status(500).json({
             success: false,
