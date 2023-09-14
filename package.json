@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon run server.js"
+    "start": "node run server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "http-status": "^1.7.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.6.1",
+    "node": "^20.6.0",
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
