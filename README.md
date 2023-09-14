@@ -1,15 +1,15 @@
-# Cheerp messaging API 
+# Name Registry API 
 
 ## Overview
 
 This API allows you to save names in a database. This code enables you to do the following:
 
-- Add a name:
-Route: /api
-METHOD: POST
-Sample Input: 
+## Add a name:
+- Route: /api
+- METHOD: POST
+- Sample Input: 
 req.body: {"name": "Tola Crescent"}
-Sample Response: 
+- Sample Response: 
 {
     "message": "Name saved",
     "newName": {
@@ -20,11 +20,11 @@ Sample Response:
     }
 }
 
-- Get a name: 
-Route: /api/:user_id
-METHOD: GET
-Sample Input: /api/1
-Sample Response:
+## Get a name: 
+- Route: /api/:user_id
+- METHOD: GET
+- Sample Input: /api/1
+- Sample Response:
 {
     "name": {
         "id": 1,
@@ -35,14 +35,14 @@ Sample Response:
 }
 
 
-- Update their account profile:
-Route: /api/:user_id
-METHOD: PUT
-Sample Input: /api/1
+## Update their account profile:
+- Route: /api/:user_id
+- METHOD: PUT
+- Sample Input: /api/1
 {
     "name": "Adebayo Crescent"
 }
-Sample Response{
+- Sample Response{
     "message": "Name updated",
     "newName": {
         "id": 1,
@@ -53,11 +53,11 @@ Sample Response{
 }
 
 
-- Delete a name: 
-Route: /api/:user_id
-METHOD: DELETE
-Sample Input: api/1
-Sample Response: 
+## Delete a name: 
+- Route: /api/:user_id
+- METHOD: DELETE
+- Sample Input: api/1
+- Sample Response: 
 {
     "message": "Name deleted"
 }
@@ -67,7 +67,7 @@ Sample Response:
 
 To install this application, you need Node.js v20.6.1( to download, go to: [https://nodejs.org/en/download/current](https://nodejs.org/en/download/current)). You can set up this project locally on your PC by running the following commands:
 
-1. Clone this project (`git clone https://github.com/Esavwede/Cheerp`)
+1. Clone this project (`git clone https://github.com/oluwaseun-odueso/HNGX-Stage2`)
 2. Run "npm install" to download all dependencies
 3. Set up a postgres database
 4. Store all credentials (PORT, SQ_DATABASE, SQ_USER, and SQ_PASSWORD) in a .env file 
