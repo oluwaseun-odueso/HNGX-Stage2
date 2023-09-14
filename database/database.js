@@ -11,10 +11,11 @@ if (!database || !user || !password) {
 
 const sequelize = new Sequelize(database, user, password, {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'postgres'
   });
 
-sequelize.authenticate()
+sequelize
+    .authenticate()
     .then(() => console.log('Connection has been established successfully.'))
     .catch((error) => console.log('Unable to connect to the database:', error));
 

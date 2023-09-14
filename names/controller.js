@@ -1,4 +1,4 @@
-const { CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED} = require('http-status')
+const { CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK, UNAUTHORIZED, NOT_ACCEPTABLE} = require('http-status')
 const {
    addName,
 } = require('./repository')
@@ -18,8 +18,13 @@ class NameController {
    saveName = async (req, res) => {
       try {
          const { name } = req.body;
+         if (typeof(name) !== "string") {
+            res.status(NOT_ACCEPTABLE).json({message: "Input should only be string"})
+            return;
+         }
+
          const newName = await addName (name)
-         res.staus(CREATED).json({message: "Name saved", newName})
+         res.status(CREATED).json({message: "Name saved", newName})
       } catch (error) {
          return res.status(500).json({
             success: false,
@@ -32,6 +37,10 @@ class NameController {
    getName = async (req, res) => {
       try {
          const name = await retrieveName (req.params.user_id)
+         if (!name) {
+            res.status(NOT_FOUND).json({message: "Name not found"})
+            return
+         }
 
          return res.status(OK).json({name})
       } catch (error) {
@@ -45,9 +54,20 @@ class NameController {
 
    editName = async (req, res) => {
       try {
+         const userNname = await retrieveName (req.params.user_id)
+         if (!userNname) {
+            res.status(NOT_FOUND).json({message: "Name not found"})
+            return
+         }
+
          const { name } = req.body;
-         const editedName = await updateName(req.params.user_id, name)
-         res.staus(OK).json({message: "Name updated", editedName})
+         if (typeof(name) !== "string") {
+            res.status(400).json({message: "Input should only be string"})
+            return
+         }
+
+         const newName = await updateName(req.params.user_id, name)
+         res.status(OK).json({message: "Name updated", newName})
       } catch (error) {
          return res.status(500).json({
             success: false,
@@ -59,8 +79,14 @@ class NameController {
 
    deleteName = async (req, res) => {
       try {
+         const name = await retrieveName (req.params.user_id)
+         if (!name) {
+            res.status(NOT_FOUND).json({message: "Name not found"})
+            return
+         }
+
          await deleteAName(req.params.user_id)
-         res.staus(OK).json({message: "Name deleted", editedName})
+         res.status(OK).json({message: "Name deleted"})
       } catch (error) {
          return res.status(500).json({
             success: false,

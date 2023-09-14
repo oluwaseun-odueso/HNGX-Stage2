@@ -1,13 +1,12 @@
 const Name = require('./model')
-const Names = require('./model')
 
 class NameRepository {
    constructor() {}
 
    addName = async (name) => {
       try {
-         const name = await Names.create({ name })
-         return name
+         const newName = await Name.create({ name })
+         return JSON.parse(JSON.stringify(newName))
       } catch (error) {
          return error
       } 
@@ -15,7 +14,7 @@ class NameRepository {
 
    getAName = async (id) => {
       try {
-         const name = await Names.findOne({
+         const name = await Name.findOne({
          where: { id }
          })
          return name
@@ -37,10 +36,10 @@ class NameRepository {
 
    updateAName = async (id, name) => {
       try {
-         const name = await User.update({name}, {
+         const newName = await Name.update({name}, {
             where: { id }
          })
-         return name
+         return newName;
       } catch (error) {
          return error 
       }

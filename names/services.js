@@ -11,19 +11,17 @@ class NameService {
 
    retrieveName = async (id) => {
       try {
-         const name = await getAName(name)
-         if (!name) throw new Error(NOT_FOUND, "Name not found")
+         const name = await getAName(id)
          return name
       } catch (error) {
          throw error
       }
    }
 
-   updateName = async (id, name) => {
+   updateName = async (id, newName) => {
       try {
-         const name = await getAName(name)
-         if (!name) throw new Error(NOT_FOUND, "Name not found")
-         const editedName = await updateAName(id, name)
+         await updateAName(id, newName)
+         const editedName = await getAName(id)
          return editedName;
       } catch (error) {
          throw error
@@ -32,8 +30,6 @@ class NameService {
 
    deleteAName = async (id) => {
       try {
-         const name = await getAName(name)
-         if (!name) throw new Error(NOT_FOUND, "Name not found")
          await deleteAName(id)
          return true 
       } catch (error) {
