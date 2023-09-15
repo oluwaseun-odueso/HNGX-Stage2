@@ -5,7 +5,7 @@
 This API allows you to save names in a database. This code enables you to do the following:
 
 ## Add a name:
-- Route: /api
+- Route: https://hngx-stage-2-ucd0.onrender.com/api
 - METHOD: POST
 - Sample Input: 
 req.body: {"name": "Tola Crescent"}
@@ -21,7 +21,7 @@ req.body: {"name": "Tola Crescent"}
 }
 
 ## Get a name: 
-- Route: /api/:user_id
+- Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: GET
 - Sample Input: /api/1
 - Sample Response:
@@ -36,7 +36,7 @@ req.body: {"name": "Tola Crescent"}
 
 
 ## Update their account profile:
-- Route: /api/:user_id
+- Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: PUT
 - Sample Input: /api/1
 {
@@ -54,7 +54,7 @@ req.body: {"name": "Tola Crescent"}
 
 
 ## Delete a name: 
-- Route: /api/:user_id
+- Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: DELETE
 - Sample Input: api/1
 - Sample Response: 
