@@ -4,13 +4,14 @@ require('dotenv').config();
 const database = process.env.SQ_DATABASE;
 const user = process.env.SQ_USER;
 const password = process.env.SQ_PASSWORD;
+const host = process.env.HOST
 
-if (!database || !user || !password) {
+if (!database || !user || !password || !host) {
     throw new Error('Missing required environment variables for database connection');
 };
 
 const sequelize = new Sequelize(database, user, password, {
-    host: 'localhost',
+    host: host,
     dialect: 'postgres'
   });
 
