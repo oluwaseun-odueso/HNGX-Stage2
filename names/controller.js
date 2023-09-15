@@ -11,9 +11,6 @@ const {
 
 
 class NameController {
-   constructor(
-      namesServices
-   ) {}
 
    saveName = async (req, res) => {
       try {

@@ -1,7 +1,6 @@
 const Name = require('./model')
 
 class NameRepository {
-   constructor() {}
 
    addName = async (name) => {
       try {

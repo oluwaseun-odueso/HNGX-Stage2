@@ -7,7 +7,6 @@ const {
 } = require('./repository')
 
 class NameService {
-   constructor () {}
 
    retrieveName = async (id) => {
       try {
