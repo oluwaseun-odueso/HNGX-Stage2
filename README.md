@@ -23,7 +23,7 @@ req.body: {"name": "Tola Crescent"}
 ## Get a name: 
 - Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: GET
-- Sample Input: /api/1
+- Sample Input: https://hngx-stage-2-ucd0.onrender.com/api/1
 - Sample Response:
 {
     "name": {
@@ -38,7 +38,7 @@ req.body: {"name": "Tola Crescent"}
 ## Update their account profile:
 - Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: PUT
-- Sample Input: /api/1
+- Sample Input: https://hngx-stage-2-ucd0.onrender.com/api/1
 {
     "name": "Adebayo Crescent"
 }
@@ -56,7 +56,7 @@ req.body: {"name": "Tola Crescent"}
 ## Delete a name: 
 - Route: https://hngx-stage-2-ucd0.onrender.com/api/:user_id
 - METHOD: DELETE
-- Sample Input: api/1
+- Sample Input: https://hngx-stage-2-ucd0.onrender.com/api/1
 - Sample Response: 
 {
     "message": "Name deleted"
